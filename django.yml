@@ -44,7 +44,7 @@ jobs:
         id: deploy 
         run: | 
           aws deploy create-deployment \ 
-            --application-name django-test-codedeploy \ 
-            --deployment-group-name django-test-codedeploy-group \ 
+            --application-name **코드 디폴로이에서 생성한 어플리케이션 이름** \ 
+            --deployment-group-name **디폴로이에서 생성한 그룹 이름** \ 
             --deployment-config-name CodeDeployDefault.OneAtATime \ 
             --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
