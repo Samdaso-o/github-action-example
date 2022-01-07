@@ -1,7 +1,9 @@
 # github-action-example
 github-action-example
 
-Django.yml -- django test ci 및 aws s3까지의 job code
+- Django.yml : django test ci 및 aws s3까지의 job code
+
+- zip-deploy : aws s3 upload / ec2 job  
 
 용어 정리
 -------
