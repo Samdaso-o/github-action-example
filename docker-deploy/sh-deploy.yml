@@ -1,0 +1,33 @@
+name: deploy
+
+on:
+  pull_request:
+    branches: [ branch_name ]
+
+jobs:
+  build:
+    name: ec2-entry
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: Deploy_DEV
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DEV }} #github secret 등록요망
+          username: ubuntu
+          key: ${{ secrets.KEY_DEV }}
+          timeout: 600s
+          script: |
+            sh deploy 
+
+      - name: Deploy_DEV_SUB
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DEV_SUB }}
+          username: ubuntu
+          key: ${{ secrets.KEY_DEV }}
+          timeout: 600s
+          script: |
+            sh deploy
